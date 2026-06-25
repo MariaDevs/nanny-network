@@ -132,3 +132,16 @@ label {
     padding-right: 1.25rem;
   }
 }
+
+.nav-mobile-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-desktop-links {
+    display: none !important;
+  }
+  .nav-mobile-toggle {
+    display: block;
+  }
+}

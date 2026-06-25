@@ -73,27 +73,27 @@ export default function ServicesPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="py-20 text-center" style={{ background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
-        <div className="max-w-3xl mx-auto px-4">
-          <h1 className="section-title text-4xl mb-4">Our Childcare Services</h1>
-          <p className="text-gray-600 text-lg leading-relaxed">
+      <section style={{ padding: "5rem 0", textAlign: "center", background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
+        <div className="wrap">
+          <h1 className="section-title" style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Our Childcare Services</h1>
+          <p style={{ color: "#4b5563", fontSize: "1.1rem", lineHeight: 1.7 }}>
             From full-time nannies to emergency childcare — Nanny Network has a solution for every family across South Africa.
           </p>
         </div>
       </section>
 
       {/* Services grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8">
+      <section style={{ padding: "5rem 0" }}>
+        <div className="wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", gap: "2rem" }}>
             {services.map(s => (
-              <div key={s.title} className="card p-8">
-                <div className="text-5xl mb-4">{s.emoji}</div>
-                <h2 className="text-xl font-bold mb-3" style={{ color: "#1a1a2e" }}>{s.title}</h2>
-                <p className="text-gray-500 text-sm leading-relaxed mb-4">{s.desc}</p>
-                <ul className="flex flex-col gap-2">
+              <div key={s.title} className="card" style={{ padding: "2rem" }}>
+                <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>{s.emoji}</div>
+                <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.75rem", color: "#1a1a2e" }}>{s.title}</h2>
+                <p style={{ color: "#6b7280", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "1rem" }}>{s.desc}</p>
+                <ul style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                   {s.features.map(f => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-gray-600">
+                    <li key={f} style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "#4b5563" }}>
                       <span style={{ color: "#7bc67e" }}>✓</span> {f}
                     </li>
                   ))}
@@ -105,23 +105,22 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 text-center" style={{ background: "linear-gradient(135deg, #4a90d9, #2c6fad)" }}>
-        <div className="max-w-2xl mx-auto px-4 text-white">
-          <h2 className="text-3xl font-bold mb-4">Need Childcare Assistance?</h2>
-          <p className="text-blue-100 mb-8">Contact Nanny Network today. We are here to help your family find the right support.</p>
-          <div className="flex flex-wrap justify-center gap-4">
+      <section style={{ padding: "4rem 0", textAlign: "center", background: "linear-gradient(135deg, #4a90d9, #2c6fad)" }}>
+        <div className="wrap">
+          <h2 style={{ fontSize: "1.875rem", fontWeight: 700, color: "white", marginBottom: "1rem" }}>Need Childcare Assistance?</h2>
+          <p style={{ color: "#bfdbfe", marginBottom: "2rem", fontSize: "1.1rem" }}>Contact Nanny Network today. We are here to help your family find the right support.</p>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem" }}>
             <a href="tel:0810259931"
-              className="bg-white font-semibold py-3 px-8 rounded-full flex items-center gap-2"
-              style={{ color: "#4a90d9" }}>
+              style={{ background: "white", color: "#4a90d9", fontWeight: 600, padding: "0.75rem 2rem", borderRadius: "9999px", display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}>
               <Phone size={18} /> 081 025 9931
             </a>
             <a href="https://wa.me/270810259931" target="_blank" rel="noopener noreferrer"
-              className="border-2 border-white text-white font-semibold py-3 px-8 rounded-full flex items-center gap-2">
+              style={{ border: "2px solid white", color: "white", fontWeight: 600, padding: "0.75rem 2rem", borderRadius: "9999px", display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}>
               <MessageCircle size={18} /> WhatsApp Us
             </a>
           </div>
-          <div className="mt-6">
-            <Link href="/nannies" className="text-blue-200 underline text-sm">Browse Available Nannies →</Link>
+          <div style={{ marginTop: "1.5rem" }}>
+            <Link href="/nannies" style={{ color: "#bfdbfe", fontSize: "0.875rem", textDecoration: "underline" }}>Browse Available Nannies →</Link>
           </div>
         </div>
       </section>

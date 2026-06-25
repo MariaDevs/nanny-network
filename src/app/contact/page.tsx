@@ -24,117 +24,115 @@ export default function ContactPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="py-20 text-center" style={{ background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
-        <div className="max-w-2xl mx-auto px-4">
-          <h1 className="section-title text-4xl mb-4">Contact Nanny Network</h1>
-          <p className="text-gray-600 text-lg">We are here to help. Reach out to us and we will connect you with the right nanny for your family.</p>
+      <section style={{ padding: "5rem 0", textAlign: "center", background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
+        <div className="wrap">
+          <h1 className="section-title" style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Contact Nanny Network</h1>
+          <p style={{ color: "#4b5563", fontSize: "1.1rem" }}>We are here to help. Reach out to us and we will connect you with the right nanny for your family.</p>
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12">
-          {/* Contact info */}
-          <div>
-            <h2 className="text-2xl font-bold mb-6" style={{ color: "#1a1a2e" }}>Get In Touch</h2>
-            <div className="flex flex-col gap-6 mb-8">
-              <a href="tel:0810259931" className="flex items-center gap-4 card p-5 hover:no-underline">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: "#e8f4fd" }}>
-                  <Phone size={22} style={{ color: "#4a90d9" }} />
+      <section style={{ padding: "4rem 0" }}>
+        <div className="wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(380px, 100%), 1fr))", gap: "3rem" }}>
+            {/* Contact info */}
+            <div>
+              <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "1.5rem", color: "#1a1a2e" }}>Get In Touch</h2>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginBottom: "2rem" }}>
+                <a href="tel:0810259931" className="card" style={{ display: "flex", alignItems: "center", gap: "1rem", padding: "1.25rem", textDecoration: "none", color: "inherit" }}>
+                  <div style={{ width: "3rem", height: "3rem", borderRadius: "9999px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: "#e8f4fd" }}>
+                    <Phone size={22} style={{ color: "#4a90d9" }} />
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: 700 }}>Call Us</div>
+                    <div style={{ color: "#6b7280", fontSize: "0.875rem" }}>081 025 9931</div>
+                  </div>
+                </a>
+                <a href="https://wa.me/270810259931" target="_blank" rel="noopener noreferrer"
+                  className="card" style={{ display: "flex", alignItems: "center", gap: "1rem", padding: "1.25rem", textDecoration: "none", color: "inherit" }}>
+                  <div style={{ width: "3rem", height: "3rem", borderRadius: "9999px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: "#e8fdf0" }}>
+                    <MessageCircle size={22} style={{ color: "#25d366" }} />
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: 700 }}>WhatsApp Us</div>
+                    <div style={{ color: "#6b7280", fontSize: "0.875rem" }}>Click to start a chat on WhatsApp</div>
+                  </div>
+                </a>
+                <div className="card" style={{ display: "flex", alignItems: "center", gap: "1rem", padding: "1.25rem" }}>
+                  <div style={{ width: "3rem", height: "3rem", borderRadius: "9999px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: "#fef0f5" }}>
+                    <Mail size={22} style={{ color: "#f8b4c8" }} />
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: 700 }}>Email Us</div>
+                    <div style={{ color: "#6b7280", fontSize: "0.875rem" }}>info@nannynetwork.co.za</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-bold">Call Us</div>
-                  <div className="text-gray-500 text-sm">081 025 9931</div>
-                </div>
-              </a>
-              <a href="https://wa.me/270810259931" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-4 card p-5 hover:no-underline">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: "#e8fdf0" }}>
-                  <MessageCircle size={22} style={{ color: "#25d366" }} />
-                </div>
-                <div>
-                  <div className="font-bold">WhatsApp Us</div>
-                  <div className="text-gray-500 text-sm">Click to start a chat on WhatsApp</div>
-                </div>
-              </a>
-              <div className="flex items-center gap-4 card p-5">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: "#fef0f5" }}>
-                  <Mail size={22} style={{ color: "#f8b4c8" }} />
-                </div>
-                <div>
-                  <div className="font-bold">Email Us</div>
-                  <div className="text-gray-500 text-sm">info@nannynetwork.co.za</div>
+                <div className="card" style={{ display: "flex", alignItems: "center", gap: "1rem", padding: "1.25rem" }}>
+                  <div style={{ width: "3rem", height: "3rem", borderRadius: "9999px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: "#f0faf0" }}>
+                    <MapPin size={22} style={{ color: "#7bc67e" }} />
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: 700 }}>Location</div>
+                    <div style={{ color: "#6b7280", fontSize: "0.875rem" }}>Serving all 9 provinces of South Africa</div>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center gap-4 card p-5">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: "#f0faf0" }}>
-                  <MapPin size={22} style={{ color: "#7bc67e" }} />
-                </div>
-                <div>
-                  <div className="font-bold">Location</div>
-                  <div className="text-gray-500 text-sm">Serving all 9 provinces of South Africa</div>
-                </div>
+
+              <div className="card" style={{ padding: "1.5rem", background: "#e8f4fd" }}>
+                <h3 style={{ fontWeight: 700, marginBottom: "0.5rem" }}>Quick WhatsApp Chat</h3>
+                <p style={{ color: "#4b5563", fontSize: "0.875rem", marginBottom: "1rem" }}>Need a nanny urgently? Message us on WhatsApp for a quick response.</p>
+                <a href="https://wa.me/270810259931?text=Hi%20Nanny%20Network%2C%20I%20am%20looking%20for%20a%20nanny."
+                  target="_blank" rel="noopener noreferrer"
+                  className="btn-primary"
+                  style={{ background: "#25d366", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+                  <MessageCircle size={18} /> Chat on WhatsApp
+                </a>
               </div>
             </div>
 
-            <div className="card p-6" style={{ background: "#e8f4fd" }}>
-              <h3 className="font-bold mb-2">Quick WhatsApp Chat</h3>
-              <p className="text-gray-600 text-sm mb-4">Need a nanny urgently? Message us on WhatsApp for a quick response.</p>
-              <a href="https://wa.me/270810259931?text=Hi%20Nanny%20Network%2C%20I%20am%20looking%20for%20a%20nanny."
-                target="_blank" rel="noopener noreferrer"
-                className="btn-primary flex items-center gap-2 w-full justify-center"
-                style={{ background: "#25d366" }}>
-                <MessageCircle size={18} /> Chat on WhatsApp
-              </a>
+            {/* Contact form */}
+            <div className="card" style={{ padding: "2rem" }}>
+              {sent ? (
+                <div style={{ textAlign: "center", padding: "2.5rem 0" }}>
+                  <div style={{ fontSize: "3.5rem", marginBottom: "1rem" }}>✅</div>
+                  <h3 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "0.5rem" }}>Message Sent!</h3>
+                  <p style={{ color: "#6b7280" }}>Thank you for contacting Nanny Network. We will get back to you as soon as possible.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                  <h2 style={{ fontSize: "1.25rem", fontWeight: 700 }}>Send Us a Message</h2>
+                  <div>
+                    <label>Full Name *</label>
+                    <input required value={form.fullName} onChange={e => setForm(p => ({ ...p, fullName: e.target.value }))} placeholder="Your full name" />
+                  </div>
+                  <div>
+                    <label>Phone Number *</label>
+                    <input required value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} placeholder="Your phone number" />
+                  </div>
+                  <div>
+                    <label>Email Address *</label>
+                    <input required type="email" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} placeholder="Your email address" />
+                  </div>
+                  <div>
+                    <label>City *</label>
+                    <input required value={form.city} onChange={e => setForm(p => ({ ...p, city: e.target.value }))} placeholder="Your city" />
+                  </div>
+                  <div>
+                    <label>Service Needed *</label>
+                    <select required value={form.service} onChange={e => setForm(p => ({ ...p, service: e.target.value }))}>
+                      <option value="">Select a service...</option>
+                      {services.map(s => <option key={s} value={s}>{s}</option>)}
+                    </select>
+                  </div>
+                  <div>
+                    <label>Message *</label>
+                    <textarea required rows={4} value={form.message} onChange={e => setForm(p => ({ ...p, message: e.target.value }))} placeholder="Tell us about your childcare needs..." />
+                  </div>
+                  <button type="submit" disabled={loading} className="btn-primary" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+                    <Send size={18} /> {loading ? "Sending..." : "Send Message"}
+                  </button>
+                </form>
+              )}
             </div>
-          </div>
-
-          {/* Contact form */}
-          <div className="card p-8">
-            {sent ? (
-              <div className="text-center py-10">
-                <div className="text-6xl mb-4">✅</div>
-                <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
-                <p className="text-gray-500">Thank you for contacting Nanny Network. We will get back to you as soon as possible.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <h2 className="text-xl font-bold">Send Us a Message</h2>
-                <div>
-                  <label>Full Name *</label>
-                  <input required value={form.fullName} onChange={e => setForm(p => ({ ...p, fullName: e.target.value }))} placeholder="Your full name" />
-                </div>
-                <div>
-                  <label>Phone Number *</label>
-                  <input required value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} placeholder="Your phone number" />
-                </div>
-                <div>
-                  <label>Email Address *</label>
-                  <input required type="email" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} placeholder="Your email address" />
-                </div>
-                <div>
-                  <label>City *</label>
-                  <input required value={form.city} onChange={e => setForm(p => ({ ...p, city: e.target.value }))} placeholder="Your city" />
-                </div>
-                <div>
-                  <label>Service Needed *</label>
-                  <select required value={form.service} onChange={e => setForm(p => ({ ...p, service: e.target.value }))}>
-                    <option value="">Select a service...</option>
-                    {services.map(s => <option key={s} value={s}>{s}</option>)}
-                  </select>
-                </div>
-                <div>
-                  <label>Message *</label>
-                  <textarea required rows={4} value={form.message} onChange={e => setForm(p => ({ ...p, message: e.target.value }))} placeholder="Tell us about your childcare needs..." />
-                </div>
-                <button type="submit" disabled={loading} className="btn-primary flex items-center justify-center gap-2">
-                  <Send size={18} /> {loading ? "Sending..." : "Send Message"}
-                </button>
-              </form>
-            )}
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Search, Phone, MapPin, Clock, Star } from "lucide-react";
+import { Search, Phone, MapPin, Clock } from "lucide-react";
 
 type Nanny = {
   id: string;
@@ -25,66 +25,60 @@ function NannyCard({ nanny }: { nanny: Nanny }) {
   const avail = nanny.availability.split(",").map(a => a.trim()).filter(Boolean);
 
   return (
-    <div className="card overflow-hidden">
-      <div className="h-48 flex items-center justify-center text-7xl"
-        style={{ background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
+    <div className="card" style={{ overflow: "hidden" }}>
+      <div style={{ height: "12rem", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "4.5rem", background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
         {nanny.photoUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={nanny.photoUrl} alt={nanny.fullName} className="w-full h-full object-cover" />
+          <img src={nanny.photoUrl} alt={nanny.fullName} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         ) : "👩"}
       </div>
-      <div className="p-6">
-        <h3 className="font-bold text-lg mb-1">{nanny.fullName}</h3>
-        <div className="flex items-center gap-1 text-gray-500 text-sm mb-3">
+      <div style={{ padding: "1.5rem" }}>
+        <h3 style={{ fontWeight: 700, fontSize: "1.1rem", marginBottom: "0.25rem" }}>{nanny.fullName}</h3>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.25rem", color: "#6b7280", fontSize: "0.875rem", marginBottom: "0.75rem" }}>
           <MapPin size={14} /> {nanny.city}, {nanny.province}
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-3">
-          <span className="px-2 py-1 rounded-full text-xs font-medium"
-            style={{ background: "#e8f4fd", color: "#4a90d9" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.75rem" }}>
+          <span style={{ padding: "0.25rem 0.5rem", borderRadius: "9999px", fontSize: "0.75rem", fontWeight: 600, background: "#e8f4fd", color: "#4a90d9" }}>
             {nanny.yearsExperience} yrs experience
           </span>
-          <span className="px-2 py-1 rounded-full text-xs font-medium"
-            style={{ background: "#f0faf0", color: "#2d6a2f" }}>
+          <span style={{ padding: "0.25rem 0.5rem", borderRadius: "9999px", fontSize: "0.75rem", fontWeight: 600, background: "#f0faf0", color: "#2d6a2f" }}>
             Age: {nanny.age}
           </span>
         </div>
 
-        <div className="mb-3">
-          <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Languages</div>
-          <div className="flex flex-wrap gap-1">
+        <div style={{ marginBottom: "0.75rem" }}>
+          <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.25rem" }}>Languages</div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.25rem" }}>
             {langs.slice(0, 3).map(l => (
-              <span key={l} className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">{l}</span>
+              <span key={l} style={{ fontSize: "0.75rem", padding: "0.125rem 0.5rem", borderRadius: "9999px", background: "#f3f4f6", color: "#4b5563" }}>{l}</span>
             ))}
           </div>
         </div>
 
-        <div className="mb-3">
-          <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Skills</div>
-          <div className="flex flex-wrap gap-1">
+        <div style={{ marginBottom: "0.75rem" }}>
+          <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.25rem" }}>Skills</div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.25rem" }}>
             {skills.slice(0, 3).map(s => (
-              <span key={s} className="text-xs px-2 py-0.5 rounded-full"
-                style={{ background: "#fef0f5", color: "#c2185b" }}>{s}</span>
+              <span key={s} style={{ fontSize: "0.75rem", padding: "0.125rem 0.5rem", borderRadius: "9999px", background: "#fef0f5", color: "#c2185b" }}>{s}</span>
             ))}
           </div>
         </div>
 
-        <div className="mb-3">
-          <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Availability</div>
-          <div className="flex flex-wrap gap-1">
+        <div style={{ marginBottom: "0.75rem" }}>
+          <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.25rem" }}>Availability</div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.25rem" }}>
             {avail.map(a => (
-              <span key={a} className="text-xs px-2 py-0.5 rounded-full"
-                style={{ background: "#f0faf0", color: "#388e3c" }}>
-                <Clock size={10} className="inline mr-1" />{a}
+              <span key={a} style={{ fontSize: "0.75rem", padding: "0.125rem 0.5rem", borderRadius: "9999px", background: "#f0faf0", color: "#388e3c", display: "flex", alignItems: "center", gap: "0.25rem" }}>
+                <Clock size={10} />{a}
               </span>
             ))}
           </div>
         </div>
 
-        <p className="text-gray-500 text-xs leading-relaxed mb-4 line-clamp-3">{nanny.bio}</p>
+        <p style={{ color: "#6b7280", fontSize: "0.75rem", lineHeight: 1.6, marginBottom: "1rem", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{nanny.bio}</p>
 
-        <a href="tel:0810259931"
-          className="btn-primary w-full text-center flex items-center justify-center gap-2 text-sm">
+        <a href="tel:0810259931" className="btn-primary" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", fontSize: "0.875rem", width: "100%", textAlign: "center" }}>
           <Phone size={16} /> Contact Nanny Network: 0810259931
         </a>
       </div>
@@ -110,51 +104,48 @@ export default function NanniesClient({ nannies }: { nannies: Nanny[] }) {
   return (
     <div>
       {/* Hero */}
-      <section className="py-16 text-center" style={{ background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
-        <div className="max-w-3xl mx-auto px-4">
-          <h1 className="section-title text-4xl mb-4">Find Your Perfect Nanny</h1>
-          <p className="text-gray-600 text-lg mb-8">Browse verified nanny profiles across South Africa. All nannies are admin-approved.</p>
+      <section style={{ padding: "4rem 0", textAlign: "center", background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
+        <div className="wrap">
+          <h1 className="section-title" style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Find Your Perfect Nanny</h1>
+          <p style={{ color: "#4b5563", fontSize: "1.1rem", marginBottom: "2rem" }}>Browse verified nanny profiles across South Africa. All nannies are admin-approved.</p>
 
           {/* Search bar */}
-          <div className="flex items-center gap-3 bg-white rounded-2xl p-3 shadow-md max-w-2xl mx-auto">
-            <Search size={20} style={{ color: "#9ca3af" }} className="ml-2 flex-shrink-0" />
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", background: "white", borderRadius: "1rem", padding: "0.75rem", boxShadow: "0 4px 15px rgba(0,0,0,0.08)", maxWidth: "32rem", margin: "0 auto" }}>
+            <Search size={20} style={{ color: "#9ca3af", flexShrink: 0, marginLeft: "0.5rem" }} />
             <input
               type="text"
               placeholder="Search by name, city or skill..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="flex-1 border-none outline-none text-sm bg-transparent p-0"
-              style={{ width: "auto" }}
+              style={{ flex: 1, border: "none", outline: "none", fontSize: "0.875rem", background: "transparent", padding: 0, width: "auto" }}
             />
           </div>
         </div>
       </section>
 
-      <section className="py-10">
-        <div className="max-w-7xl mx-auto px-4">
+      <section style={{ padding: "2.5rem 0" }}>
+        <div className="wrap">
           {/* Filters */}
-          <div className="flex flex-wrap gap-4 mb-8">
-            <select value={province} onChange={e => setProvince(e.target.value)}
-              className="w-auto px-4 py-2 text-sm">
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginBottom: "2rem", alignItems: "center" }}>
+            <select value={province} onChange={e => setProvince(e.target.value)} style={{ width: "auto" }}>
               {PROVINCES.map(p => <option key={p}>{p}</option>)}
             </select>
-            <select value={availability} onChange={e => setAvailability(e.target.value)}
-              className="w-auto px-4 py-2 text-sm">
+            <select value={availability} onChange={e => setAvailability(e.target.value)} style={{ width: "auto" }}>
               {AVAILABILITY_OPTIONS.map(a => <option key={a}>{a}</option>)}
             </select>
-            <span className="flex items-center text-sm text-gray-500 ml-auto">
+            <span style={{ fontSize: "0.875rem", color: "#6b7280", marginLeft: "auto" }}>
               {filtered.length} nann{filtered.length === 1 ? "y" : "ies"} found
             </span>
           </div>
 
           {filtered.length === 0 ? (
-            <div className="text-center py-20">
-              <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-xl font-bold mb-2">No nannies found</h3>
-              <p className="text-gray-500">Try adjusting your search or filters.</p>
+            <div style={{ textAlign: "center", padding: "5rem 0" }}>
+              <div style={{ fontSize: "3.5rem", marginBottom: "1rem" }}>🔍</div>
+              <h3 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "0.5rem" }}>No nannies found</h3>
+              <p style={{ color: "#6b7280" }}>Try adjusting your search or filters.</p>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(280px, 100%), 1fr))", gap: "1.5rem" }}>
               {filtered.map(n => <NannyCard key={n.id} nanny={n} />)}
             </div>
           )}
@@ -162,11 +153,13 @@ export default function NanniesClient({ nannies }: { nannies: Nanny[] }) {
       </section>
 
       {/* CTA */}
-      <section className="py-12 text-center" style={{ background: "#fdf6ec" }}>
-        <p className="text-gray-600 mb-4">Don&apos;t see the right nanny? Call us directly and we&apos;ll help you find the perfect match.</p>
-        <a href="tel:0810259931" className="btn-primary inline-flex items-center gap-2">
-          <Phone size={18} /> Call: 081 025 9931
-        </a>
+      <section style={{ padding: "3rem 0", textAlign: "center", background: "#fdf6ec" }}>
+        <div className="wrap">
+          <p style={{ color: "#4b5563", marginBottom: "1rem" }}>Don&apos;t see the right nanny? Call us directly and we&apos;ll help you find the perfect match.</p>
+          <a href="tel:0810259931" className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+            <Phone size={18} /> Call: 081 025 9931
+          </a>
+        </div>
       </section>
     </div>
   );

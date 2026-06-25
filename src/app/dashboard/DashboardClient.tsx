@@ -66,7 +66,7 @@ export default function DashboardClient({ nanny, userEmail }: { nanny: Nanny; us
 
   return (
     <div style={{ background: "#f5f5f0", minHeight: "100vh" }}>
-      <div className="max-w-5xl mx-auto px-4 py-12">
+      <div className="wrap" style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
         {/* Header */}
         <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
           <div>
@@ -139,7 +139,7 @@ export default function DashboardClient({ nanny, userEmail }: { nanny: Nanny; us
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))", gap: "1.5rem" }}>
             {editing ? (
               <>
                 <div>
@@ -160,17 +160,16 @@ export default function DashboardClient({ nanny, userEmail }: { nanny: Nanny; us
                   <label>Salary Range</label>
                   <input value={form.salaryRange} onChange={e => setForm(p => ({ ...p, salaryRange: e.target.value }))} />
                 </div>
-                <div className="md:col-span-2">
+                <div style={{ gridColumn: "1 / -1" }}>
                   <label>Bio</label>
                   <textarea rows={4} value={form.bio} onChange={e => setForm(p => ({ ...p, bio: e.target.value }))} />
                 </div>
-                <div className="md:col-span-2">
+                <div style={{ gridColumn: "1 / -1" }}>
                   <label>Availability</label>
-                  <div className="flex flex-wrap gap-2 mt-2">
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "0.5rem" }}>
                     {AVAILABILITY_OPTIONS.map(a => (
                       <button key={a} type="button" onClick={() => toggleAvail(a)}
-                        className="px-3 py-1.5 rounded-full text-sm font-medium transition"
-                        style={{ background: formAvailArr.includes(a) ? "#f8b4c8" : "#e5e7eb", color: formAvailArr.includes(a) ? "#831843" : "#374151" }}>
+                        style={{ padding: "0.375rem 0.75rem", borderRadius: "9999px", fontSize: "0.875rem", fontWeight: 600, border: "none", cursor: "pointer", background: formAvailArr.includes(a) ? "#f8b4c8" : "#e5e7eb", color: formAvailArr.includes(a) ? "#831843" : "#374151" }}>
                         {a}
                       </button>
                     ))}
@@ -186,30 +185,29 @@ export default function DashboardClient({ nanny, userEmail }: { nanny: Nanny; us
                   ["Languages", data.languages],
                 ].map(([label, value]) => (
                   <div key={label}>
-                    <div className="text-xs font-semibold text-gray-400 uppercase mb-1">{label}</div>
-                    <div className="font-medium text-sm">{value}</div>
+                    <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.25rem" }}>{label}</div>
+                    <div style={{ fontWeight: 500, fontSize: "0.875rem" }}>{value}</div>
                   </div>
                 ))}
                 <div>
-                  <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Availability</div>
-                  <div className="flex flex-wrap gap-1">
+                  <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.25rem" }}>Availability</div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.25rem" }}>
                     {availArr.map(a => (
-                      <span key={a} className="text-xs px-2 py-1 rounded-full"
-                        style={{ background: "#fef0f5", color: "#c2185b" }}>{a}</span>
+                      <span key={a} style={{ fontSize: "0.75rem", padding: "0.25rem 0.5rem", borderRadius: "9999px", background: "#fef0f5", color: "#c2185b" }}>{a}</span>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Skills</div>
-                  <div className="flex flex-wrap gap-1">
+                  <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.25rem" }}>Skills</div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.25rem" }}>
                     {data.skills.split(",").map(s => s.trim()).filter(Boolean).map(s => (
-                      <span key={s} className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">{s}</span>
+                      <span key={s} style={{ fontSize: "0.75rem", padding: "0.25rem 0.5rem", borderRadius: "9999px", background: "#f3f4f6", color: "#4b5563" }}>{s}</span>
                     ))}
                   </div>
                 </div>
-                <div className="md:col-span-2">
-                  <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Bio</div>
-                  <p className="text-sm text-gray-600 leading-relaxed">{data.bio}</p>
+                <div style={{ gridColumn: "1 / -1" }}>
+                  <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.25rem" }}>Bio</div>
+                  <p style={{ fontSize: "0.875rem", color: "#4b5563", lineHeight: 1.6 }}>{data.bio}</p>
                 </div>
               </>
             )}

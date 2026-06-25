@@ -15,43 +15,42 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-18 py-3">
+    <nav style={{ background: "white", boxShadow: "0 1px 8px rgba(0,0,0,0.06)", position: "sticky", top: 0, zIndex: 50 }}>
+      <div className="wrap">
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "4.5rem" }}>
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, #4a90d9, #7bc67e)" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}>
+            <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "9999px", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #4a90d9, #7bc67e)" }}>
               <Heart size={20} fill="white" color="white" />
             </div>
             <div>
-              <span className="font-bold text-xl" style={{ color: "#1a1a2e" }}>Nanny</span>
-              <span className="font-bold text-xl" style={{ color: "#4a90d9" }}> Network</span>
+              <span style={{ fontWeight: 700, fontSize: "1.25rem", color: "#1a1a2e" }}>Nanny</span>
+              <span style={{ fontWeight: 700, fontSize: "1.25rem", color: "#4a90d9" }}> Network</span>
             </div>
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="nav-desktop-links" style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
             {links.map(l => (
               <Link key={l.href} href={l.href}
-                className="text-gray-600 hover:text-blue-500 font-medium transition-colors text-sm">
+                style={{ color: "#4b5563", fontWeight: 500, fontSize: "0.875rem", textDecoration: "none" }}>
                 {l.label}
               </Link>
             ))}
           </div>
 
           {/* CTA buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link href="/nanny-login" className="text-blue-500 font-semibold text-sm hover:text-blue-700">
+          <div className="nav-desktop-links" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+            <Link href="/nanny-login" style={{ color: "#4a90d9", fontWeight: 600, fontSize: "0.875rem", textDecoration: "none" }}>
               Nanny Login
             </Link>
-            <Link href="/register" className="btn-primary text-sm py-2 px-5">
+            <Link href="/register" className="btn-primary" style={{ fontSize: "0.875rem", padding: "0.5rem 1.25rem" }}>
               Register as Nanny
             </Link>
           </div>
 
           {/* Mobile toggle */}
-          <button onClick={() => setOpen(!open)} className="md:hidden p-2">
+          <button onClick={() => setOpen(!open)} className="nav-mobile-toggle" style={{ padding: "0.5rem", background: "none", border: "none", cursor: "pointer" }}>
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -59,21 +58,22 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-white border-t px-4 py-4 flex flex-col gap-4">
-          {links.map(l => (
-            <Link key={l.href} href={l.href} onClick={() => setOpen(false)}
-              className="text-gray-700 font-medium py-2 border-b border-gray-100">
-              {l.label}
+        <div style={{ background: "white", borderTop: "1px solid #f3f4f6", padding: "1rem 0" }}>
+          <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            {links.map(l => (
+              <Link key={l.href} href={l.href} onClick={() => setOpen(false)}
+                style={{ color: "#374151", fontWeight: 500, padding: "0.5rem 0", borderBottom: "1px solid #f3f4f6", textDecoration: "none" }}>
+                {l.label}
+              </Link>
+            ))}
+            <Link href="/nanny-login" onClick={() => setOpen(false)}
+              style={{ color: "#4a90d9", fontWeight: 600, padding: "0.5rem 0", textDecoration: "none" }}>
+              Nanny Login
             </Link>
-          ))}
-          <Link href="/nanny-login" onClick={() => setOpen(false)}
-            className="text-blue-500 font-semibold py-2">
-            Nanny Login
-          </Link>
-          <Link href="/register" onClick={() => setOpen(false)}
-            className="btn-primary text-center">
-            Register as Nanny
-          </Link>
+            <Link href="/register" onClick={() => setOpen(false)} className="btn-primary" style={{ textAlign: "center" }}>
+              Register as Nanny
+            </Link>
+          </div>
         </div>
       )}
     </nav>

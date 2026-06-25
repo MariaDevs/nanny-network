@@ -78,12 +78,12 @@ export default function AdminClient({ nannies: initial, messages }: { nannies: N
 
   return (
     <div style={{ background: "#f5f5f0", minHeight: "100vh" }}>
-      <div className="max-w-7xl mx-auto px-4 py-10">
+      <div className="wrap" style={{ paddingTop: "2.5rem", paddingBottom: "2.5rem" }}>
         <h1 className="text-2xl font-bold mb-2" style={{ color: "#1a1a2e" }}>Admin Panel</h1>
         <p className="text-gray-500 text-sm mb-8">Nanny Network — Content Management</p>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(160px, 100%), 1fr))", gap: "1rem", marginBottom: "2rem" }}>
           {[
             { label: "Total Nannies", value: stats.total, color: "#4a90d9" },
             { label: "Approved", value: stats.approved, color: "#7bc67e" },
@@ -187,7 +187,7 @@ export default function AdminClient({ nannies: initial, messages }: { nannies: N
 
                   {expanded === nanny.id && (
                     <div className="border-t px-5 py-4" style={{ background: "#fafafa" }}>
-                      <div className="grid md:grid-cols-3 gap-4 text-sm mb-4">
+                      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(180px, 100%), 1fr))", gap: "1rem", fontSize: "0.875rem", marginBottom: "1rem" }}>
                         <div>
                           <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Private Phone</div>
                           <div>{nanny.phone}</div>
