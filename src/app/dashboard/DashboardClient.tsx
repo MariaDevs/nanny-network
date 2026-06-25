@@ -21,8 +21,7 @@ function StatusBadge({ status }: { status: string }) {
   }[status] || { icon: <Clock size={16} />, label: status, bg: "#f5f5f5", color: "#6b7280" };
 
   return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold"
-      style={{ background: config.bg, color: config.color }}>
+    <span style={{ display: "inline-flex", alignItems: "center", gap: "0.375rem", padding: "0.375rem 0.75rem", borderRadius: "9999px", fontSize: "0.875rem", fontWeight: 600, background: config.bg, color: config.color }}>
       {config.icon} {config.label}
     </span>
   );
@@ -80,8 +79,8 @@ export default function DashboardClient({ nanny, userEmail }: { nanny: Nanny; us
         </div>
 
         {/* Status card */}
-        <div className="card p-6 mb-6">
-          <div className="flex items-center justify-between flex-wrap gap-4">
+        <div className="card" style={{ padding: "1.5rem", marginBottom: "1.5rem" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
             <div>
               <h2 className="font-bold text-lg mb-1">Profile Status</h2>
               <p className="text-gray-500 text-sm">
@@ -94,48 +93,46 @@ export default function DashboardClient({ nanny, userEmail }: { nanny: Nanny; us
             <StatusBadge status={data.status} />
           </div>
           {saved && (
-            <div className="mt-4 p-3 rounded-xl text-sm flex items-center gap-2"
-              style={{ background: "#e8fdf0", color: "#166534" }}>
+            <div style={{ marginTop: "1rem", padding: "0.75rem", borderRadius: "0.75rem", fontSize: "0.875rem", display: "flex", alignItems: "center", gap: "0.5rem", background: "#e8fdf0", color: "#166534" }}>
               <CheckCircle size={16} /> Changes submitted for admin review.
             </div>
           )}
         </div>
 
         {/* Profile */}
-        <div className="card p-8 mb-6">
+        <div className="card" style={{ padding: "2rem", marginBottom: "1.5rem" }}>
           <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
             <h2 className="font-bold text-lg">My Profile</h2>
             {!editing ? (
               <button onClick={() => { setForm(data); setEditing(true); }}
-                className="flex items-center gap-2 btn-outline text-sm py-2 px-4">
+                className="btn-outline" style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", padding: "0.5rem 1rem" }}>
                 <Edit3 size={16} /> Edit Profile
               </button>
             ) : (
               <div className="flex gap-2">
-                <button onClick={() => setEditing(false)} className="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 border border-gray-300 py-2 px-4 rounded-full">
+                <button onClick={() => setEditing(false)} style={{ display: "flex", alignItems: "center", gap: "0.25rem", fontSize: "0.875rem", color: "#6b7280", border: "1px solid #d1d5db", padding: "0.5rem 1rem", borderRadius: "9999px", background: "none", cursor: "pointer" }}>
                   <X size={14} /> Cancel
                 </button>
-                <button onClick={handleSave} disabled={saving} className="flex items-center gap-1 btn-primary text-sm py-2 px-4">
+                <button onClick={handleSave} disabled={saving} className="btn-primary" style={{ display: "flex", alignItems: "center", gap: "0.25rem", fontSize: "0.875rem", padding: "0.5rem 1rem" }}>
                   <Save size={14} /> {saving ? "Saving..." : "Save Changes"}
                 </button>
               </div>
             )}
           </div>
 
-          {error && <div className="mb-4 p-3 rounded-xl text-sm" style={{ background: "#fef2f2", color: "#dc2626" }}>{error}</div>}
+          {error && <div style={{ marginBottom: "1rem", padding: "0.75rem", borderRadius: "0.75rem", fontSize: "0.875rem", background: "#fef2f2", color: "#dc2626" }}>{error}</div>}
 
           {/* Photo */}
-          <div className="flex items-center gap-6 mb-8">
-            <div className="w-24 h-24 rounded-full flex items-center justify-center text-4xl flex-shrink-0 overflow-hidden"
-              style={{ background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "2rem" }}>
+            <div style={{ width: "6rem", height: "6rem", borderRadius: "9999px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2.5rem", flexShrink: 0, overflow: "hidden", background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
               {data.photoUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={data.photoUrl} alt={data.fullName} className="w-full h-full object-cover" />
+                <img src={data.photoUrl} alt={data.fullName} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               ) : "👩"}
             </div>
             <div>
-              <h3 className="font-bold text-xl">{data.fullName}</h3>
-              <p className="text-gray-500">{data.city}, {data.province}</p>
+              <h3 style={{ fontWeight: 700, fontSize: "1.25rem" }}>{data.fullName}</h3>
+              <p style={{ color: "#6b7280" }}>{data.city}, {data.province}</p>
             </div>
           </div>
 
@@ -214,7 +211,7 @@ export default function DashboardClient({ nanny, userEmail }: { nanny: Nanny; us
           </div>
         </div>
 
-        <div className="card p-6 text-center">
+        <div className="card" style={{ padding: "1.5rem", textAlign: "center" }}>
           <p className="text-gray-500 text-sm mb-3">Need help with your profile? Contact us.</p>
           <a href="tel:0810259931" className="btn-primary text-sm py-2 px-6">📞 081 025 9931</a>
         </div>

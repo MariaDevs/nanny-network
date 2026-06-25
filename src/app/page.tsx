@@ -90,7 +90,7 @@ export default function Home() {
               { icon: <Heart size={32} style={{ color: "#f8b4c8" }} />, title: "Caring Professionals", desc: "Our nannies are passionate, experienced and dedicated to providing the best childcare." },
               { icon: <Users size={32} style={{ color: "#7bc67e" }} />, title: "Perfect Match", desc: "We help you find the right nanny based on location, experience, skills and availability." },
             ].map(item => (
-              <div key={item.title} className="card p-8" style={{ textAlign: "center" }}>
+              <div key={item.title} className="card" style={{ textAlign: "center", padding: "2rem" }}>
                 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1rem" }}>{item.icon}</div>
                 <h3 style={{ fontWeight: 700, fontSize: "1.1rem", marginBottom: "0.75rem" }}>{item.title}</h3>
                 <p style={{ color: "#6b7280", fontSize: "0.875rem", lineHeight: 1.6 }}>{item.desc}</p>
@@ -107,7 +107,7 @@ export default function Home() {
           <p className="section-subtitle">Flexible childcare solutions tailored to your family&apos;s needs.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "1.5rem" }}>
             {services.map(s => (
-              <div key={s.title} className="card p-6" style={{ textAlign: "left" }}>
+              <div key={s.title} className="card" style={{ textAlign: "left", padding: "1.5rem" }}>
                 <div style={{ fontSize: "2.5rem", marginBottom: "0.75rem" }}>{s.icon}</div>
                 <h3 style={{ fontWeight: 700, marginBottom: "0.5rem" }}>{s.title}</h3>
                 <p style={{ color: "#6b7280", fontSize: "0.875rem" }}>{s.desc}</p>
@@ -141,7 +141,7 @@ export default function Home() {
           <p className="section-subtitle">Real stories from real people who trust Nanny Network.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "2rem" }}>
             {testimonials.map(t => (
-              <div key={t.name} className="card p-8" style={{ textAlign: "left" }}>
+              <div key={t.name} className="card" style={{ textAlign: "left", padding: "2rem" }}>
                 <div style={{ display: "flex", gap: "0.25rem", marginBottom: "1rem" }}>
                   {Array.from({ length: t.rating }).map((_, i) => (
                     <Star key={i} size={16} fill="#fbbf24" style={{ color: "#fbbf24" }} />
@@ -165,7 +165,7 @@ export default function Home() {
           <p className="section-subtitle" style={{ textAlign: "center" }}>Everything you need to know about Nanny Network.</p>
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "48rem", margin: "0 auto" }}>
             {faqs.map(faq => (
-              <div key={faq.q} className="card p-6">
+              <div key={faq.q} className="card" style={{ padding: "1.5rem" }}>
                 <h3 style={{ fontWeight: 700, marginBottom: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   <ChevronRight size={18} style={{ color: "#4a90d9" }} />
                   {faq.q}
