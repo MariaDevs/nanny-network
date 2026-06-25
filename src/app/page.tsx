@@ -29,7 +29,7 @@ export default function Home() {
     <div>
       {/* Hero */}
       <section style={{ background: "linear-gradient(135deg, #e8f4fd 0%, #fef0f5 50%, #f0faf0 100%)", overflow: "hidden", minHeight: "88vh", display: "flex", alignItems: "center" }}>
-        <div className="wrap" style={{ padding: "5rem 2rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "3rem", alignItems: "center" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "5rem 2.5rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "3rem", alignItems: "center", width: "100%", boxSizing: "border-box" }}>
           <div>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.5rem 1rem", borderRadius: "9999px", fontSize: "0.875rem", fontWeight: 600, background: "#e8f4fd", color: "#4a90d9", marginBottom: "1.5rem" }}>
               <Shield size={16} /> Trusted Childcare Across South Africa

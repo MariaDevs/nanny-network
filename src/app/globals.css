@@ -120,8 +120,15 @@ label {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   width: 100%;
   box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }
