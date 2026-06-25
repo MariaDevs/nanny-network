@@ -66,13 +66,13 @@ export default function Home() {
                 <div className="text-sm opacity-80 mt-2">Professional · Verified · Trusted</div>
               </div>
             </div>
-            <div className="absolute top-4 -left-4 bg-white rounded-2xl p-3 shadow-lg">
+            <div className="absolute top-4 left-0 bg-white rounded-2xl p-3 shadow-lg">
               <div className="flex items-center gap-2">
                 <CheckCircle size={18} style={{ color: "#7bc67e" }} />
                 <span className="text-sm font-semibold">Admin Verified</span>
               </div>
             </div>
-            <div className="absolute bottom-8 -right-4 bg-white rounded-2xl p-3 shadow-lg">
+            <div className="absolute bottom-8 right-0 bg-white rounded-2xl p-3 shadow-lg">
               <div className="flex items-center gap-2">
                 <Star size={18} fill="#fbbf24" style={{ color: "#fbbf24" }} />
                 <span className="text-sm font-semibold">5-Star Nannies</span>
