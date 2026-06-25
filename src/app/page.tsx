@@ -29,7 +29,7 @@ export default function Home() {
     <div>
       {/* Hero */}
       <section style={{ background: "linear-gradient(135deg, #e8f4fd 0%, #fef0f5 50%, #f0faf0 100%)", overflow: "hidden", minHeight: "88vh", display: "flex", alignItems: "center" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "5rem 2.5rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "3rem", alignItems: "center", width: "100%", boxSizing: "border-box" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "5rem 2.5rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: "3rem", alignItems: "center", width: "100%", boxSizing: "border-box" }}>
           <div>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.5rem 1rem", borderRadius: "9999px", fontSize: "0.875rem", fontWeight: 600, background: "#e8f4fd", color: "#4a90d9", marginBottom: "1.5rem" }}>
               <Shield size={16} /> Trusted Childcare Across South Africa
@@ -84,7 +84,7 @@ export default function Home() {
         <div className="wrap" style={{ textAlign: "center" }}>
           <h2 className="section-title">Why Choose Nanny Network?</h2>
           <p className="section-subtitle">Safety, trust and professional care at the heart of everything we do.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "2rem" }}>
             {[
               { icon: <Shield size={32} style={{ color: "#4a90d9" }} />, title: "Verified Profiles", desc: "Every nanny is reviewed and approved by our admin team before going live on our platform." },
               { icon: <Heart size={32} style={{ color: "#f8b4c8" }} />, title: "Caring Professionals", desc: "Our nannies are passionate, experienced and dedicated to providing the best childcare." },
@@ -105,7 +105,7 @@ export default function Home() {
         <div className="wrap" style={{ textAlign: "center" }}>
           <h2 className="section-title">Our Services</h2>
           <p className="section-subtitle">Flexible childcare solutions tailored to your family&apos;s needs.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "1.5rem" }}>
             {services.map(s => (
               <div key={s.title} className="card p-6" style={{ textAlign: "left" }}>
                 <div style={{ fontSize: "2.5rem", marginBottom: "0.75rem" }}>{s.icon}</div>
@@ -139,7 +139,7 @@ export default function Home() {
         <div className="wrap" style={{ textAlign: "center" }}>
           <h2 className="section-title">What Families &amp; Nannies Say</h2>
           <p className="section-subtitle">Real stories from real people who trust Nanny Network.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "2rem" }}>
             {testimonials.map(t => (
               <div key={t.name} className="card p-8" style={{ textAlign: "left" }}>
                 <div style={{ display: "flex", gap: "0.25rem", marginBottom: "1rem" }}>
