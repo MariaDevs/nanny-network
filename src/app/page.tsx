@@ -30,7 +30,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[88vh] flex items-center"
         style={{ background: "linear-gradient(135deg, #e8f4fd 0%, #fef0f5 50%, #f0faf0 100%)" }}>
-        <div className="max-w-7xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 py-20 grid md:grid-cols-2 gap-12 items-center w-full">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6"
               style={{ background: "#e8f4fd", color: "#4a90d9" }}>
@@ -57,22 +57,22 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="relative flex justify-center">
-            <div className="w-80 h-80 md:w-96 md:h-96 rounded-3xl flex items-center justify-center"
+          <div className="relative flex justify-center px-8">
+            <div className="w-full max-w-sm aspect-square rounded-3xl flex items-center justify-center"
               style={{ background: "linear-gradient(135deg, #4a90d9 0%, #7bc67e 100%)" }}>
               <div className="text-center text-white px-8">
-                <div className="text-8xl mb-4">👩‍👧‍👦</div>
+                <div className="text-7xl mb-4">👩‍👧‍👦</div>
                 <div className="text-xl font-bold">Caring Nannies</div>
                 <div className="text-sm opacity-80 mt-2">Professional · Verified · Trusted</div>
               </div>
             </div>
-            <div className="absolute top-4 left-0 bg-white rounded-2xl p-3 shadow-lg">
+            <div className="absolute top-4 left-10 bg-white rounded-2xl p-3 shadow-lg">
               <div className="flex items-center gap-2">
                 <CheckCircle size={18} style={{ color: "#7bc67e" }} />
                 <span className="text-sm font-semibold">Admin Verified</span>
               </div>
             </div>
-            <div className="absolute bottom-8 right-0 bg-white rounded-2xl p-3 shadow-lg">
+            <div className="absolute bottom-8 right-10 bg-white rounded-2xl p-3 shadow-lg">
               <div className="flex items-center gap-2">
                 <Star size={18} fill="#fbbf24" style={{ color: "#fbbf24" }} />
                 <span className="text-sm font-semibold">5-Star Nannies</span>
