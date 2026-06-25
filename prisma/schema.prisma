@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      String   @default("nanny")
+  createdAt DateTime @default(now())
+  nanny     Nanny?
+}
+
+model Nanny {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fullName        String
+  phone           String
+  province        String
+  city            String
+  age             Int
+  yearsExperience Int
+  languages       String
+  skills          String
+  availability    String
+  salaryRange     String
+  bio             String
+  photoUrl        String?
+  idDocUrl        String?
+  certsUrl        String?
+  status          String   @default("pending")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  fullName  String
+  phone     String
+  email     String
+  city      String
+  service   String
+  message   String
+  createdAt DateTime @default(now())
+}
