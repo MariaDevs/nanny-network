@@ -79,8 +79,8 @@ export default function AdminClient({ nannies: initial, messages }: { nannies: N
   return (
     <div style={{ background: "#f5f5f0", minHeight: "100vh" }}>
       <div className="wrap" style={{ paddingTop: "2.5rem", paddingBottom: "2.5rem" }}>
-        <h1 className="text-2xl font-bold mb-2" style={{ color: "#1a1a2e" }}>Admin Panel</h1>
-        <p className="text-gray-500 text-sm mb-8">Nanny Network — Content Management</p>
+        <h1 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "0.5rem" }}>Admin Panel</h1>
+        <p style={{ color: "#6b7280", fontSize: "0.875rem", marginBottom: "2rem" }}>Nanny Network — Content Management</p>
 
         {/* Stats */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(160px, 100%), 1fr))", gap: "1rem", marginBottom: "2rem" }}>
@@ -90,23 +90,21 @@ export default function AdminClient({ nannies: initial, messages }: { nannies: N
             { label: "Pending Review", value: stats.pending, color: "#f59e0b" },
             { label: "Rejected", value: stats.rejected, color: "#ef4444" },
           ].map(s => (
-            <div key={s.label} className="card p-5">
-              <div className="text-2xl font-bold" style={{ color: s.color }}>{s.value}</div>
-              <div className="text-gray-500 text-sm">{s.label}</div>
+            <div key={s.label} className="card" style={{ padding: "1.25rem" }}>
+              <div style={{ fontSize: "1.5rem", fontWeight: 700, color: s.color }}>{s.value}</div>
+              <div style={{ color: "#6b7280", fontSize: "0.875rem" }}>{s.label}</div>
             </div>
           ))}
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-1 mb-6 bg-white rounded-xl p-1 w-fit shadow-sm">
+        <div style={{ display: "inline-flex", gap: "0.25rem", marginBottom: "1.5rem", background: "white", borderRadius: "0.75rem", padding: "0.25rem", boxShadow: "0 1px 8px rgba(0,0,0,0.06)" }}>
           <button onClick={() => setTab("nannies")}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition"
-            style={{ background: tab === "nannies" ? "#4a90d9" : "transparent", color: tab === "nannies" ? "white" : "#6b7280" }}>
+            style={{ display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.5rem 1rem", borderRadius: "0.5rem", fontSize: "0.875rem", fontWeight: 600, border: "none", cursor: "pointer", transition: "all 0.2s", background: tab === "nannies" ? "#4a90d9" : "transparent", color: tab === "nannies" ? "white" : "#6b7280" }}>
             <Users size={16} /> Nannies ({nannies.length})
           </button>
           <button onClick={() => setTab("messages")}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition"
-            style={{ background: tab === "messages" ? "#4a90d9" : "transparent", color: tab === "messages" ? "white" : "#6b7280" }}>
+            style={{ display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.5rem 1rem", borderRadius: "0.5rem", fontSize: "0.875rem", fontWeight: 600, border: "none", cursor: "pointer", transition: "all 0.2s", background: tab === "messages" ? "#4a90d9" : "transparent", color: tab === "messages" ? "white" : "#6b7280" }}>
             <MessageSquare size={16} /> Messages ({messages.length})
           </button>
         </div>
@@ -114,120 +112,109 @@ export default function AdminClient({ nannies: initial, messages }: { nannies: N
         {tab === "nannies" && (
           <div>
             {/* Filters */}
-            <div className="card p-4 mb-6 flex flex-wrap gap-3 items-center">
-              <div className="flex items-center gap-2 flex-1 min-w-48">
-                <Search size={16} className="text-gray-400" />
+            <div className="card" style={{ padding: "1rem", marginBottom: "1.5rem", display: "flex", flexWrap: "wrap", gap: "0.75rem", alignItems: "center" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flex: 1, minWidth: "12rem", background: "#f9fafb", borderRadius: "0.5rem", padding: "0.5rem 0.75rem" }}>
+                <Search size={16} style={{ color: "#9ca3af", flexShrink: 0 }} />
                 <input value={search} onChange={e => setSearch(e.target.value)}
-                  placeholder="Search nannies..." className="border-0 outline-none text-sm bg-transparent p-0 flex-1" />
+                  placeholder="Search nannies..."
+                  style={{ border: "none", outline: "none", fontSize: "0.875rem", background: "transparent", padding: 0, width: "100%" }} />
               </div>
-              <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="w-auto text-sm py-2">
+              <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)}
+                style={{ width: "auto", fontSize: "0.875rem", padding: "0.5rem 0.75rem" }}>
                 <option value="all">All Status</option>
                 <option value="pending">Pending</option>
                 <option value="approved">Approved</option>
                 <option value="rejected">Rejected</option>
                 <option value="inactive">Inactive</option>
               </select>
-              <select value={filterProvince} onChange={e => setFilterProvince(e.target.value)} className="w-auto text-sm py-2">
+              <select value={filterProvince} onChange={e => setFilterProvince(e.target.value)}
+                style={{ width: "auto", fontSize: "0.875rem", padding: "0.5rem 0.75rem" }}>
                 {provinces.map(p => <option key={p} value={p}>{p === "all" ? "All Provinces" : p}</option>)}
               </select>
-              <span className="text-xs text-gray-400 flex items-center gap-1">
+              <span style={{ fontSize: "0.75rem", color: "#9ca3af", display: "flex", alignItems: "center", gap: "0.25rem" }}>
                 <Filter size={12} /> {filtered.length} result{filtered.length !== 1 ? "s" : ""}
               </span>
             </div>
 
             {/* Nannies list */}
-            <div className="flex flex-col gap-4">
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
               {filtered.map(nanny => (
-                <div key={nanny.id} className="card overflow-hidden">
-                  <div className="p-5 flex items-center justify-between flex-wrap gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0 overflow-hidden"
-                        style={{ background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
+                <div key={nanny.id} className="card" style={{ overflow: "hidden" }}>
+                  <div style={{ padding: "1.25rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                      <div style={{ width: "3rem", height: "3rem", borderRadius: "9999px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", flexShrink: 0, overflow: "hidden", background: "linear-gradient(135deg, #e8f4fd, #fef0f5)" }}>
                         {nanny.photoUrl ? (
                           // eslint-disable-next-line @next/next/no-img-element
-                          <img src={nanny.photoUrl} alt={nanny.fullName} className="w-full h-full object-cover" />
+                          <img src={nanny.photoUrl} alt={nanny.fullName} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                         ) : "👩"}
                       </div>
                       <div>
-                        <div className="font-bold">{nanny.fullName}</div>
-                        <div className="text-gray-500 text-xs">{nanny.user.email} · {nanny.city}, {nanny.province}</div>
-                        <div className="text-gray-400 text-xs mt-0.5">{nanny.yearsExperience} yrs exp · Age {nanny.age}</div>
+                        <div style={{ fontWeight: 700 }}>{nanny.fullName}</div>
+                        <div style={{ color: "#6b7280", fontSize: "0.75rem" }}>{nanny.user.email} · {nanny.city}, {nanny.province}</div>
+                        <div style={{ color: "#9ca3af", fontSize: "0.75rem", marginTop: "0.125rem" }}>{nanny.yearsExperience} yrs exp · Age {nanny.age}</div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 flex-wrap">
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
                       <StatusBadge status={nanny.status} />
                       <button onClick={() => setExpanded(expanded === nanny.id ? null : nanny.id)}
-                        className="p-2 rounded-lg hover:bg-gray-100 text-gray-500" title="View details">
+                        style={{ padding: "0.5rem", borderRadius: "0.5rem", background: "none", border: "none", cursor: "pointer", color: "#6b7280" }} title="View details">
                         {expanded === nanny.id ? <EyeOff size={16} /> : <Eye size={16} />}
                       </button>
                       {nanny.status !== "approved" && (
                         <button onClick={() => updateStatus(nanny.id, "approved")}
-                          className="p-2 rounded-lg hover:bg-green-50 text-green-600" title="Approve">
+                          style={{ padding: "0.5rem", borderRadius: "0.5rem", background: "none", border: "none", cursor: "pointer", color: "#16a34a" }} title="Approve">
                           <CheckCircle size={16} />
                         </button>
                       )}
                       {nanny.status !== "rejected" && (
                         <button onClick={() => updateStatus(nanny.id, "rejected")}
-                          className="p-2 rounded-lg hover:bg-red-50 text-red-500" title="Reject">
+                          style={{ padding: "0.5rem", borderRadius: "0.5rem", background: "none", border: "none", cursor: "pointer", color: "#ef4444" }} title="Reject">
                           <XCircle size={16} />
                         </button>
                       )}
                       {nanny.status === "approved" && (
                         <button onClick={() => updateStatus(nanny.id, "inactive")}
-                          className="p-2 rounded-lg hover:bg-gray-100 text-gray-400 text-xs font-medium" title="Deactivate">
+                          style={{ padding: "0.375rem 0.75rem", borderRadius: "0.5rem", background: "none", border: "1px solid #d1d5db", cursor: "pointer", color: "#9ca3af", fontSize: "0.75rem", fontWeight: 600 }} title="Deactivate">
                           Deactivate
                         </button>
                       )}
                       <button onClick={() => deleteNanny(nanny.id)}
-                        className="p-2 rounded-lg hover:bg-red-50 text-red-400" title="Delete">
+                        style={{ padding: "0.5rem", borderRadius: "0.5rem", background: "none", border: "none", cursor: "pointer", color: "#f87171" }} title="Delete">
                         <Trash2 size={16} />
                       </button>
                     </div>
                   </div>
 
                   {expanded === nanny.id && (
-                    <div className="border-t px-5 py-4" style={{ background: "#fafafa" }}>
+                    <div style={{ borderTop: "1px solid #f3f4f6", padding: "1rem 1.25rem", background: "#fafafa" }}>
                       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(180px, 100%), 1fr))", gap: "1rem", fontSize: "0.875rem", marginBottom: "1rem" }}>
-                        <div>
-                          <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Private Phone</div>
-                          <div>{nanny.phone}</div>
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Languages</div>
-                          <div>{nanny.languages}</div>
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Availability</div>
-                          <div>{nanny.availability}</div>
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Salary Range</div>
-                          <div>{nanny.salaryRange || "Not specified"}</div>
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Skills</div>
-                          <div>{nanny.skills}</div>
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Registered</div>
-                          <div>{new Date(nanny.createdAt).toLocaleDateString("en-ZA")}</div>
-                        </div>
+                        {[
+                          ["Private Phone", nanny.phone],
+                          ["Languages", nanny.languages],
+                          ["Availability", nanny.availability],
+                          ["Salary Range", nanny.salaryRange || "Not specified"],
+                          ["Skills", nanny.skills],
+                          ["Registered", new Date(nanny.createdAt).toLocaleDateString("en-ZA")],
+                        ].map(([label, val]) => (
+                          <div key={label}>
+                            <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.25rem" }}>{label}</div>
+                            <div>{val}</div>
+                          </div>
+                        ))}
                       </div>
-                      <div className="mb-4 text-sm">
-                        <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Bio</div>
-                        <p className="text-gray-600">{nanny.bio}</p>
+                      <div style={{ marginBottom: "1rem", fontSize: "0.875rem" }}>
+                        <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.25rem" }}>Bio</div>
+                        <p style={{ color: "#4b5563" }}>{nanny.bio}</p>
                       </div>
-                      <div className="flex gap-3 text-sm">
+                      <div style={{ display: "flex", gap: "0.75rem" }}>
                         {nanny.idDocUrl && (
-                          <a href={nanny.idDocUrl} target="_blank" rel="noopener noreferrer"
-                            className="btn-outline text-xs py-1.5 px-4">View ID Document</a>
+                          <a href={nanny.idDocUrl} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ fontSize: "0.75rem", padding: "0.375rem 1rem" }}>View ID Document</a>
                         )}
                         {nanny.certsUrl && (
-                          <a href={nanny.certsUrl} target="_blank" rel="noopener noreferrer"
-                            className="btn-outline text-xs py-1.5 px-4">View Certificates</a>
+                          <a href={nanny.certsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ fontSize: "0.75rem", padding: "0.375rem 1rem" }}>View Certificates</a>
                         )}
                         {!nanny.idDocUrl && !nanny.certsUrl && (
-                          <span className="text-gray-400 text-xs">No documents uploaded</span>
+                          <span style={{ color: "#9ca3af", fontSize: "0.75rem" }}>No documents uploaded</span>
                         )}
                       </div>
                     </div>
@@ -243,26 +230,26 @@ export default function AdminClient({ nannies: initial, messages }: { nannies: N
         )}
 
         {tab === "messages" && (
-          <div className="flex flex-col gap-4">
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             {messages.map(m => (
-              <div key={m.id} className="card p-6">
-                <div className="flex items-start justify-between flex-wrap gap-4 mb-3">
+              <div key={m.id} className="card" style={{ padding: "1.5rem" }}>
+                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem", marginBottom: "0.75rem" }}>
                   <div>
-                    <div className="font-bold">{m.fullName}</div>
-                    <div className="text-gray-500 text-xs">{m.email} · {m.phone} · {m.city}</div>
+                    <div style={{ fontWeight: 700 }}>{m.fullName}</div>
+                    <div style={{ color: "#6b7280", fontSize: "0.75rem" }}>{m.email} · {m.phone} · {m.city}</div>
                   </div>
-                  <div className="text-right">
-                    <span className="text-xs px-2 py-1 rounded-full" style={{ background: "#e8f4fd", color: "#4a90d9" }}>
+                  <div style={{ textAlign: "right" }}>
+                    <span style={{ fontSize: "0.75rem", padding: "0.25rem 0.5rem", borderRadius: "9999px", background: "#e8f4fd", color: "#4a90d9" }}>
                       {m.service}
                     </span>
-                    <div className="text-gray-400 text-xs mt-1">{new Date(m.createdAt).toLocaleDateString("en-ZA")}</div>
+                    <div style={{ color: "#9ca3af", fontSize: "0.75rem", marginTop: "0.25rem" }}>{new Date(m.createdAt).toLocaleDateString("en-ZA")}</div>
                   </div>
                 </div>
-                <p className="text-gray-600 text-sm">{m.message}</p>
+                <p style={{ color: "#4b5563", fontSize: "0.875rem" }}>{m.message}</p>
               </div>
             ))}
             {messages.length === 0 && (
-              <div className="text-center py-12 text-gray-400">No contact messages yet.</div>
+              <div style={{ textAlign: "center", padding: "3rem 0", color: "#9ca3af" }}>No contact messages yet.</div>
             )}
           </div>
         )}
