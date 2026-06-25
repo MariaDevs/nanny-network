@@ -24,7 +24,7 @@ function StatusBadge({ status }: { status: string }) {
   };
   const c = colors[status] || colors.inactive;
   return (
-    <span className="px-2 py-1 rounded-full text-xs font-semibold" style={c}>
+    <span style={{ padding: "0.25rem 0.5rem", borderRadius: "9999px", fontSize: "0.75rem", fontWeight: 600, ...c }}>
       {status.charAt(0).toUpperCase() + status.slice(1)}
     </span>
   );
@@ -223,7 +223,7 @@ export default function AdminClient({ nannies: initial, messages }: { nannies: N
               ))}
 
               {filtered.length === 0 && (
-                <div className="text-center py-12 text-gray-400">No nannies found matching your filters.</div>
+                <div style={{ textAlign: "center", padding: "3rem 0", color: "#9ca3af" }}>No nannies found matching your filters.</div>
               )}
             </div>
           </div>
