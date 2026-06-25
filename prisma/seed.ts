@@ -1,24 +1,25 @@
-import Database from "better-sqlite3";
+import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
-import path from "path";
 
-const dbPath = path.resolve(process.cwd(), "dev.db");
-const db = new Database(dbPath);
+const prisma = new PrismaClient();
 
 async function main() {
-  const existing = db.prepare("SELECT id FROM User WHERE email = ?").get("admin@nannynetwork.co.za");
+  const existing = await prisma.user.findUnique({
+    where: { email: "admin@nannynetwork.co.za" },
+  });
   if (!existing) {
-    const hash = await bcrypt.hash("Admin@NannyNetwork2024!", 12);
-    const id = `admin_${Date.now()}`;
-    db.prepare("INSERT INTO User (id, email, password, role, createdAt) VALUES (?, ?, ?, ?, ?)").run(
-      id, "admin@nannynetwork.co.za", hash, "admin", new Date().toISOString()
-    );
+    await prisma.user.create({
+      data: {
+        email: "admin@nannynetwork.co.za",
+        password: await bcrypt.hash("Admin@NannyNetwork2024!", 12),
+        role: "admin",
+      },
+    });
     console.log("✅ Admin created: admin@nannynetwork.co.za");
     console.log("   Password: Admin@NannyNetwork2024!");
   } else {
     console.log("ℹ️  Admin already exists.");
   }
-  db.close();
 }
 
-main().catch(console.error);
+main().catch(console.error).finally(() => prisma.$disconnect());

@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import NanniesClient from "./NanniesClient";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Browse Nannies | Nanny Network South Africa",
   description: "Browse verified nanny profiles across South Africa. Find the perfect nanny for your family.",
