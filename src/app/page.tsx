@@ -28,9 +28,9 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden min-h-[88vh] flex items-center"
+      <section className="relative min-h-[88vh] flex items-center" style={{ overflow: "hidden" }}>
         style={{ background: "linear-gradient(135deg, #e8f4fd 0%, #fef0f5 50%, #f0faf0 100%)" }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 py-20 grid md:grid-cols-2 gap-12 items-center w-full">
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "5rem 2rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "3rem", alignItems: "center", width: "100%" }}>
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6"
               style={{ background: "#e8f4fd", color: "#4a90d9" }}>
