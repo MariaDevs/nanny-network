@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import DashboardClient from "./DashboardClient";
 
+export const dynamic = "force-dynamic";
 export const metadata = { title: "My Dashboard | Nanny Network" };
 
 export default async function DashboardPage() {

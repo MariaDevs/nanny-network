@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import AdminClient from "./AdminClient";
 
+export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin Panel | Nanny Network" };
 
 export default async function AdminPage() {
